@@ -53,12 +53,14 @@ h1 {
 .purple { background: purple; }
 
 .flash {
-  opacity: 1;
+  opacity: 1 !important;
   filter: brightness(150%);
+  transition: all 0.25s ease;
 }
 
 .userflash {
   filter: brightness(80%);
+  transition: all 0.25s ease;
 }
 
 @media (max-width: 600px) {
@@ -72,7 +74,6 @@ h1 {
   }
 }
 
-h1, h2,p {
-    color: white;
+h1, h2, p {
+  color: white;
 }
-
