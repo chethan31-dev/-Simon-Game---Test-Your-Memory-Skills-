@@ -9,9 +9,8 @@ let h2 = document.querySelector("h2");
 let highScoreEl = document.getElementById("high-score");
 let startBtn = document.getElementById("start-btn");
 
-// Start Button for mobile and PC
+// Start game on Start button click or keypress
 startBtn.addEventListener("click", startGame);
-
 document.addEventListener("keypress", startGame);
 
 function startGame() {
@@ -65,9 +64,7 @@ function checkAns(idx) {
     } else {
         h2.innerHTML = `Game Over! Your score was <b>${level}</b> <br> Press Start to play again.`;
         document.body.style.backgroundColor = "red";
-        setTimeout(() => {
-            document.body.style.backgroundColor = "black";
-        }, 300);
+        setTimeout(() => document.body.style.backgroundColor = "black", 300);
 
         if (level > highScore) {
             highScore = level;
@@ -80,17 +77,17 @@ function checkAns(idx) {
 function btnPress() {
     let btn = this;
     userFlash(btn);
-
-    let userColor = btn.id;
-    userSeq.push(userColor);
-
+    userSeq.push(btn.id);
     checkAns(userSeq.length - 1);
 }
 
 let allBtns = document.querySelectorAll(".btn");
 allBtns.forEach(btn => {
     btn.addEventListener("click", btnPress);
-    btn.addEventListener("touchstart", btnPress); // mobile support
+    btn.addEventListener("touchstart", function(e){
+        e.preventDefault();
+        btnPress.call(this);
+    }, {passive: false});
 });
 
 function reset() {
