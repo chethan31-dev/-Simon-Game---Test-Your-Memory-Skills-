@@ -7,9 +7,7 @@ body {
   padding: 0;
 }
 
-h1 {
-  margin-top: 20px;
-}
+h1 { margin-top: 20px; }
 
 #high-score {
   font-size: 18px;
@@ -27,9 +25,7 @@ h1 {
   margin-bottom: 20px;
   cursor: pointer;
 }
-#start-btn:hover {
-  background: darkorange;
-}
+#start-btn:hover { background: darkorange; }
 
 .game-container {
   display: grid;
@@ -45,6 +41,8 @@ h1 {
   border-radius: 15px;
   cursor: pointer;
   opacity: 0.9;
+  border: none;
+  -webkit-tap-highlight-color: transparent; /* remove tap highlight on mobile */
 }
 
 .yellow { background: yellow; }
@@ -74,6 +72,4 @@ h1 {
   }
 }
 
-h1, h2, p {
-  color: white;
-}
+h1, h2, p { color: white; }
